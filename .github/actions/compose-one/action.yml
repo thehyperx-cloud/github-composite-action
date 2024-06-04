@@ -1,0 +1,24 @@
+name: "My Composite Action"
+description: "This is a composite action example"
+inputs:
+  greeting:
+    description: "Greeting to use"
+    required: true
+    default: "Hello"
+  name:
+    description: "Name of the organization to greet"
+    required: true
+    default: "Organization"
+outputs:
+  message:
+    description: "The greeting message"
+    value: "The greeting message"
+runs:
+  using: "composite"
+  steps:
+    - name: Print greeting 1
+      shell: bash
+      run: echo "${{ inputs.greeting }}, ${{ inputs.name }}!"
+    - name: Print greeting 2
+      shell: bash
+      run: echo "${{ inputs.greeting }}, Greeting 2!"
